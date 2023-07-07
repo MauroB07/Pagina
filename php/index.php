@@ -23,14 +23,13 @@ $inc = include('conectar.php');
                 $class_nombre = '"nombre"';
 
                 echo "
+                    <div class='pelicula'>        
+                        <img  class='peli' src='$imagen_url' alt='$nombre'>
                 
-                <div class='pelicula'>        
-                    <img  class='peli' src='$imagen_url' alt='$nombre'>
-                    
-                    <div class='nombre'>
-                        <p>$nombre</p>
+                        <div class='nombre'>
+                            <p>$nombre</p>
+                        </div>
                     </div>
-                </div>
             
                 ";
                 
