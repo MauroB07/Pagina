@@ -42,6 +42,8 @@
     </div>
 </div>
 <body>
+
+    <div class="busqueda"><h1>  __Resultados de busqueda__</h1></div>
     <div class="contenedor">
         <?php
 
