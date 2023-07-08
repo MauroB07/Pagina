@@ -14,8 +14,8 @@
             <label for="btn-menu" class="icon-menu"></label>
             <a href="#">MoviesForYou</a>
         </div>
-        <form class="buscador" action="php/search.php" method="GET">
-            <label for="nombre">.</label>
+        <form class="buscador" action="php/search.php" method="POST">
+            <label for="2">.</label>
             <input type="text" id="nombre" name="nombre" placeholder="  Nombre de la pelicula">
             <input  type="submit" value=" Buscar ">
         </form>

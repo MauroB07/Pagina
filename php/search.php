@@ -2,33 +2,50 @@
 $inc = include('conectar.php');
 
 if ($inc) {
-    if (isset($_GET['nombre'])) {
-        $nombre = $_GET['nombre'];
+    if (isset($_POST['nombre'])) {
+        $nombre = $_POST['nombre'];
 
         // Consulta preparada
-        $consulta = "SELECT * FROM pelicula WHERE nombre = ?";
-        $stmt = mysqli_prepare($conexion, $consulta);
-        mysqli_stmt_bind_param($stmt, "s", $nombre);
-        mysqli_stmt_execute($stmt);
-        $resultado = mysqli_stmt_get_result($stmt);
+        $consulta = "SELECT * FROM pelicula WHERE nombre LIKE '%$nombre%'";
+        $resultado = mysqli_query($conexion,$consulta);
 
         if ($resultado) {
             while ($row = mysqli_fetch_assoc($resultado)) {
                 $id = $row['id'];
                 $nombre = $row['nombre'];
                 $sinopsis = $row['sinopsis'];
-
+                $imagen_url = $row['img'];
                 $contenido = '"contenido"';
                 $carta = '"carta"';
                 $class_imagen = '"imagen"';
                 $class_nombre = '"nombre"';
 
-                echo "
-                    <h1>$id</h1>
-                    <h1>$nombre</h1>
-                    <h1>$sinopsis</h1>
-                ";
+                $cartas .="
+                <div class='pelicula'>        
+                <img  class='peli' src='$imagen_url' alt='$nombre'>
+        
+                <div class='nombre'>
+                    <p>$nombre</p>
+                </div>
+                </div>";
+                
             }
+
+            // Verificar si el usuario ya está en busqueda2.php
+            if ($_SERVER['PHP_SELF'] !== '/Pagina/busqueda2.php') {
+                // Redirigir a la misma página (busqueda2.php) al finalizar la consulta
+                header("Location: http://localhost/Pagina/busqueda2.php?cartas=" . urlencode($cartas));
+
+                exit; // Detener la ejecución después de la redirección
+            }else{
+                header("Location: http://localhost/Pagina/busqueda2.php?cartas=" . urlencode($cartas));
+
+            }
+
+                        
+
+            
+
         }
     }
 }

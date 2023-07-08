@@ -29,9 +29,7 @@ $inc = include('conectar.php');
                         <div class='nombre'>
                             <p>$nombre</p>
                         </div>
-                    </div>
-            
-                ";
+                    </div>";
                 
              
                 
