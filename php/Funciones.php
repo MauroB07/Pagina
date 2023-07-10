@@ -20,7 +20,7 @@ while($data=$resultado->fetch_assoc()){
 
 function crear($rol_id){
     if($rol_id==1){
-        echo "<a href='#'>Administar</a>";
+        echo "<a href='http://localhost/Pagina/i_crudPelicula.php'>Administar</a>";
         //echo '<input type="submit" name="enviar" class="boton" value="Registrate">';
     }
    

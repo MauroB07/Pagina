@@ -1,9 +1,9 @@
 <?php
-    include('conexion.php');
+    include('conectar.php');
     $searchPelicula = trim($_GET['searchPelicula']);
 
     $consulta = "SELECT * FROM pelicula WHERE nombre LIKE '%$searchPelicula%'";
-    $resultado = mysqli_query($conex,$consulta);
+    $resultado = mysqli_query($conexion,$consulta);
     
     if($resultado){
         foreach($resultado as $fila){
