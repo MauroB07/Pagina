@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/detalles.css">
+    <link rel="stylesheet" href="css/fontello.css">
+    <title>Document</title>
+</head>
+<header class="header">
+    <div class="container">
+        <div class="logo">
+            <label for="btn-menu" class="icon-menu"></label>
+            <a href="#">MoviesForYou</a>
+        </div>
+        <form class="buscador" action="php/search.php" method="POST">
+            <label for="2">.</label>
+            <input type="text" id="nombre" name="nombre" placeholder="  Nombre de la pelicula">
+            <input  type="submit" value=" Buscar ">
+        </form>
+    </div>
+</header>
+<input type="checkbox" id="btn-menu">
+<div class="container-menu">
+    <div class="cont-menu">
+        <nav>
+            <div class="imagen-perfil">
+                <img src="img/perfil.png" alt="">
+            </div>
+            <a href="#">Perfil</a>
+            <a href="#">Busqueda avanzada</a>
+            <a href="#">Lo nuevo!</a>
+            <a href="#">Contacto</a>
+            <!--<?php 
+            //include ('php/Funciones.php');
+            //crear($rol_id);
+            ?>-->
+            <label for="btn-menu" class="icon-cancel-squared"></label>
+        </nav>
+    </div>
+</div>
+<body>
+  <div class="contenedor">
+    <div class ="contenedor2">
+        <div class="imagen">
+            <img class="img_peli" src="https://www.smashmexico.com.mx/wp-content/uploads/sites/2/2018/02/09103129/first-movie-poster-released-for-venom-the-trailer-is-coming-tomorrow11-e1518193898324.jpg" alt="venom">
+        </div>
+        <table style="color: white; font-family: Arial, Helvetica, sans-serif;">
+            <tr>
+                <td>Titulo</td>
+                <td>Titanes del Pacifico</td>
+            </tr>
+            <tr>
+                <td>Generos</td>
+                <td>Accion,comedia,romance</td>
+            </tr>
+            <tr>
+                <td>Sinopsis</td>
+                <td>En el mundo de bla bla que exisia no se que cosa XD, y fin</td>
+            </tr>
+            <tr>
+                <td>Fecha</td>
+                <td>10/08/1999</td>
+            </tr>
+        </table>
+    
+    </div>
+  </div> 
+</body>
+</html>
