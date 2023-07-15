@@ -1,3 +1,11 @@
+<?php 
+require 'php/conexion.php';
+$db = new Database();
+$con = $db->conectar();
+$sql = $con->prepare("SELECT * FROM pelicula");
+$sql->execute();
+$resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,16 +41,24 @@
             <a href="#">Lo nuevo!</a>
             <a href="#">Contacto</a>
             <?php 
-            include ('php/Funciones.php');
-            crear($rol_id);
+            //include ('php/Funciones.php');
+            //crear($rol_id);
             ?>
             <label for="btn-menu" class="icon-cancel-squared"></label>
         </nav>
     </div>
 </div>
 <body>
-    <div class="contenedor">
-        <?php include('php/index.php') ?>
+   <div class="contenedor">
+   <?php foreach ($resultado as $resultado1) { ?>
+    <div class='pelicula'>        
+        <img class='peli' src='<?php echo $resultado1['img']; ?>' alt='<?php echo $resultado1['nombre']; ?>'>
+        <div class='nombre'>
+            <p><?php echo $resultado1['titulo']; ?></p>
+        </div>
     </div>
+    <?php } ?>
+
+   </div> 
 </body>
 </html>
