@@ -240,32 +240,121 @@ img{
 }
 /* Contenedor */
 .contenedor {
-    
+        height: 900px;
         padding-right: 15%;
         padding-left: 15%;
         background-color: #000000;
-    .imagen{
-        
-        float: left;
-        width: fit-content;
-        height: fit-content;
-        box-shadow:1px 1px 1px 1px #fff;
-        
-        
-    }
-    .table{
-        position: absolute;
-        float: right;
-    }
+    
     .contenedor2{
         
         background-color: #0a0a0a;
         height: 100%;
         padding: 20px;
-    }
-    .img_peli{
-        height: 400px;
-        width: 300px;
         
-    }    
-  }
+
+        .tabla{
+            
+            font-family: Arial, Helvetica, sans-serif;
+            color: rgb(255, 255, 255);
+            padding: 15px;
+            padding-top: 0;
+        }
+        .tabla td{
+            padding-top: 10px;
+            border-bottom: white 1px solid;
+        }
+        .datos{
+            padding-left: 20px;
+        }
+        .img_peli{
+            max-height: 400px;
+            max-width: 300px;
+        }
+        .imagen{
+            position:static;
+            float: left;
+            width: fit-content;
+            height: fit-content;
+            box-shadow:1px 1px 1px 1px #d33939;
+        }
+        .video{
+            position: static;
+            float: left;
+            .vista{
+                margin-top: 10px;
+                text-align: center;
+                
+                background-color: #642664;
+                height: 30px;
+                width: 100%;
+                color: white;
+            }
+            .reproductor{
+                height: 400px;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+@media screen and (max-width: 820px){
+    .contenedor {    
+        height: 1000px;
+        
+        background-color: #000000;
+    
+        .contenedor2{
+            display: grid;
+            place-items: center;
+            height: 100%;
+            width: 100%;
+            padding: 10px;
+            background-color: #0a0a0a;
+        
+            .tabla{
+                font-family: Arial, Helvetica, sans-serif;
+                color: rgb(255, 255, 255);
+                padding: 10px;    
+            }
+            .tabla td{
+                padding-top: 10px;
+                border-bottom: white 1px solid;
+            }
+            .datos{
+                padding-left: 20px;
+            }
+            .img_peli{
+                max-height: 400px;
+                max-width: 300px;   
+            }
+            .imagen{
+                width: fit-content;
+                height: fit-content;
+                box-shadow:1px 1px 1px 1px #640064;
+                margin-left: 10%;
+                margin-right: 10%;
+                margin-top: 20px;
+            }
+            .video{
+                position: static;
+                float: left;
+                .vista{
+                    margin-top: 10px;
+                    text-align: center;
+                    
+                    background-color: #642664;
+                    height: 30px;
+                    width: 100%;
+                    color: white;
+                }
+                .reproductor{
+                    height: 300px;
+                }
+            }       
+        }
+    }
+}
