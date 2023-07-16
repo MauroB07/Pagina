@@ -1,8 +1,9 @@
 <?php 
 require 'php/conexion.php';
+require 'php/config.php'; 
 $db = new Database();
 $con = $db->conectar();
-$sql = $con->prepare("SELECT * FROM pelicula");
+$sql = $con->prepare("SELECT id_pelicula, titulo, img FROM pelicula");
 $sql->execute();
 $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 ?>
@@ -50,11 +51,18 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 </div>
 <body>
    <div class="contenedor">
-   <?php foreach ($resultado as $resultado1) { ?>
-    <div class='pelicula'>        
-        <img class='peli' src='<?php echo $resultado1['img']; ?>' alt='<?php echo $resultado1['nombre']; ?>'>
+   <?php foreach ($resultado as $row) { ?>
+    <?php 
+    $img = $row['img'];  
+    $titulo = $row['titulo'];    
+    ?>
+    <div class='pelicula'>  
+       <a href="Detalles.php?id_pelicula=<?php echo $row['id_pelicula']; ?>&token=<?php echo 
+       hash_hmac('sha1', $row['id_pelicula'], KEY_TOKEN);?>">     
+        <img class='peli' src='<?php echo $img; ?>' alt='<?php echo $titulo; ?>'>
+        </a>
         <div class='nombre'>
-            <p><?php echo $resultado1['titulo']; ?></p>
+            <p><?php echo $row['titulo']; ?></p>
         </div>
     </div>
     <?php } ?>

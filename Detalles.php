@@ -1,11 +1,47 @@
 <?php 
+require 'php/config.php';
 require 'php/conexion.php';
 $db = new Database();
 $con = $db->conectar();
-$sql = $con->prepare("SELECT * FROM pelicula");
+
+
+
+$id = isset($_GET['id_pelicula']) ? $_GET['id_pelicula'] : '';
+$token = isset($_GET['token']) ? $_GET['token'] : '';
+
+if ($id == '' || $token == ''){
+    echo 'Error al realizar la peticion 1';
+    exit;
+}else{
+    $token_tpm = hash_hmac('sha1', $id, KEY_TOKEN);
+
+    if($token == $token_tpm){
+        $sql = $con->prepare("SELECT count(id_pelicula) FROM pelicula WHERE id_pelicula=?");
+        $sql->execute([$id]);
+
+        if($sql->fetchColumn() > 0){
+            $sql = $con->prepare("SELECT titulo, sinopsis, fecha, generos, img FROM pelicula WHERE id_pelicula=?");
+            $sql->execute([$id]);
+            $row = $sql->fetch(PDO::FETCH_ASSOC);
+            $titulo = $row['titulo'];
+            $sinopsis = $row['sinopsis'];
+            $fecha = $row['fecha'];
+            $generos = $row['generos'];
+            $img = $row['img'];
+        }
+
+
+    }else{
+        echo 'Error al realizar la peticion 2';
+    }
+}
+/*$sql = $con->prepare("SELECT * FROM pelicula");
 $sql->execute();
 $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 ?>
+*/
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,24 +88,24 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
   <div class="contenedor">
     <div class ="contenedor2">
         <div class="imagen">
-            <img class="img_peli" src="https://www.smashmexico.com.mx/wp-content/uploads/sites/2/2018/02/09103129/first-movie-poster-released-for-venom-the-trailer-is-coming-tomorrow11-e1518193898324.jpg" alt="venom">
+            <img class="img_peli" src="<?php echo $img?>" alt="venom">
         </div>
         <table class="tabla">
             <tr>
                 <td>Titulo</td>
-                <td class="datos ">Titanes del Pacifico</td>
+                <td class="datos "><?php echo $titulo?></td>
             </tr>
             <tr>
                 <td>Generos</td>
-                <td class="datos ">Accion,comedia,romance</td>
+                <td class="datos "><?php echo $generos?></td>
             </tr>
             <tr>
                 <td>Sinopsis</td>
-                <td class="datos ">En el mundo de bla bla que exisia no se que cosa XD, y fidsjvnjvnwnwepvne evnwvivnwovin ivnwv cnwovv eoivnwevnowvv oviwnvwvv nnewen ffweofw owefmewomfwe wofewmfwofmn</td>
+                <td class="datos "><?php echo $sinopsis?></td>
             </tr>
             <tr>
                 <td>Fecha</td>
-                <td class="datos ">10/08/1999</td>
+                <td class="datos "><?php echo $fecha?></td>
             </tr>
         </table>
         <div class="video">
