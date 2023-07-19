@@ -1,42 +1,19 @@
-<?php
+<?php 
 
-$inc = include('conectar.php');
-    
-    if($inc){
-        
-       
-         /*link a detalles*/
-        
+session_start();
 
-        $consulta = "SELECT * FROM pelicula"; /*datospeli*/
-        $resultado = mysqli_query($conexion, $consulta);
-        if($resultado){
-            while($row = $resultado->fetch_array()){
-                $id = $row['id_pelicula'];
-                $nombre = $row['nombre'];
-                $sinopsis = $row['sinopsis'];
-                $imagen_url = $row['img'];
-                
-                $contenido = '"contenido"';
-                $carta = '"carta"';
-                $class_imagen = '"imagen"';
-                $class_nombre = '"nombre"';
+include ('conectar.php');
+$user = $_SESSION['nombre'];
 
-                echo "
-                    <div class='pelicula'>        
-                        <img  class='peli' src='$imagen_url' alt='$nombre'>
-                
-                        <div class='nombre'>
-                            <p>$nombre</p>
-                        </div>
-                    </div>";
-                
-             
-                
-                
-                
-            }
-            
-        }
-    }
-?>
+$sql = "SELECT id, nombre, apellido, email, passwordd, rol_id FROM usuario WHERE nombre= '$user'";
+
+$resultado =$conexion->query($sql);
+
+while($data=$resultado->fetch_assoc()){
+        $id = $data['id'];
+        $nombre = $data['nombre'];
+        $apellido = $data['apellido'];
+        $email = $data['email'];
+        $password = $data['passwordd'];
+        $rol_id = $data['rol_id'];
+}
