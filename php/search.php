@@ -6,7 +6,7 @@ if ($inc) {
         $nombre = $_POST['nombre'];
 
         // Consulta preparada
-        $consulta = "SELECT * FROM pelicula WHERE nombre LIKE '%$nombre%'";
+        $consulta = "SELECT * FROM pelicula WHERE titulo LIKE '%$nombre%'";
         $resultado = mysqli_query($conexion,$consulta);
 
         if ($resultado) {
