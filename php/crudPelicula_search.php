@@ -2,14 +2,14 @@
     include('conectar.php');
     $searchPelicula = trim($_GET['searchPelicula']);
 
-    $consulta = "SELECT * FROM pelicula WHERE nombre LIKE '%$searchPelicula%'";
+    $consulta = "SELECT * FROM pelicula WHERE titulo LIKE '%$searchPelicula%'";
     $resultado = mysqli_query($conexion,$consulta);
     
     if($resultado){
         foreach($resultado as $fila){
 
             $id_pelicula = $fila['id_pelicula']; 
-            $nombre = $fila['nombre']; 
+            $nombre = $fila['titulo']; 
             $sinopsis = $fila['sinopsis']; 
             $fecha = $fila['fecha']; 
             $img = $fila['img']; 

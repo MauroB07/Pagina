@@ -14,7 +14,7 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/fontello.css">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/Index.css">
     <title>Document</title>
 </head>
 <header class="header">
@@ -25,8 +25,8 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
         </div>
         <form class="buscador" action="php/search.php" method="POST">
             <label for="2">.</label>
-            <input type="text" id="nombre" name="nombre" placeholder="  Nombre de la pelicula">
-            <input  type="submit" value=" Buscar ">
+            <input class="busq" type="text" id="nombre" name="nombre" placeholder="  Nombre de la pelicula">
+            <input  class="busq" type="submit" value=" Buscar ">
         </form>
     </div>
 </header>
@@ -69,4 +69,26 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 
    </div> 
 </body>
+<footer class="footer">
+    <div class="contacto_1">
+        
+        <img class="red_social" src="img/facebook.png" alt="Facebook">
+        <img class="red_social" src="img/twiter.png" alt="Twiter">
+        <img class="red_social" src="img/instagram.png" alt="Instagram">
+    </div>
+    <div class="contacto_2">
+        <h4>MoviesForYou</h4>
+        <p>Ver peliclas y series en streaming para ti</p>
+        <p>Derechos de autor © 2023 </p>
+    </div>
+    <div class="contacto_3">
+        <form class="form" action="">
+            <p>Contactenos</p>
+            <input id="campos" type="email" name="Gmail" placeholder="Ingrese email" required>
+            <input id="campos" type="text" name="Asunto" placeholder="Asunto" >
+            <input id="campos" type="text" name="Mensaje" placeholder="Mensaje" required>
+            <input id="campos" type="submit" name="Enviar" placeholder="Enviar">
+        </form>
+    </div>
+</footer>
 </html>
