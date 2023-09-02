@@ -1,17 +1,15 @@
 <?php 
-require 'php/conexion.php';
-require 'php/config.php'; 
-$db = new Database();
-$con = $db->conectar();
-if (isset($_GET['cartas'])) {
-    // Decodificar la variable $resultado que se pasó en la URL
-    $bus = urldecode($_GET['cartas']);
-}
-$sql = $con->prepare("SELECT id_pelicula, titulo, img FROM pelicula WHERE titulo ='%$bus%?");
-$sql->execute();
-$resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
-
-
+    require 'php/conexion.php';
+    require 'php/config.php';
+    $db = new Database();
+    $con = $db->conectar();
+    if (isset($_GET['titulo'])) {
+        $titulo = '%'.$_GET['titulo'].'%';
+    }
+    
+    $sql = $con->prepare("SELECT id_pelicula, titulo, img FROM pelicula WHERE titulo LIKE '$titulo'");
+    $sql->execute();
+    $resultado2 = $sql->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 <!DOCTYPE html>
@@ -60,7 +58,7 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 <body>
     <div class="busqueda"><h1>  __Resultados de busqueda__</h1></div>
         <div class="contenedor">
-            <?php foreach ($resultado as $row) { ?>
+            <?php foreach ($resultado2 as $row) { ?>
             <?php 
             $img = $row['img'];  
             $titulo = $row['titulo'];    
