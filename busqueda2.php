@@ -27,7 +27,7 @@
     <div class="container">
         <div class="logo">
             <label for="btn-menu" class="icon-menu"></label>
-            <a href="#">MoviesForYou</a>
+            <a href="index.php">MoviesForYou</a>
         </div>
         <form class="buscador" action="php/search.php" method="POST">
             <label for="nombre">.</label>
@@ -46,7 +46,7 @@
             <a href="#">Perfil</a>
             <a href="#">Busqueda avanzada</a>
             <a href="#">Lo nuevo!</a>
-            <a href="#">Contacto</a>
+            
             <?php 
             include ('php/Funciones.php');
             crear($rol_id);

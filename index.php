@@ -1,11 +1,13 @@
 <?php 
 require 'php/conexion.php';
 require 'php/config.php'; 
+require 'php/Funciones.php';
 $db = new Database();
 $con = $db->conectar();
 $sql = $con->prepare("SELECT id_pelicula, titulo, img FROM pelicula");
 $sql->execute();
 $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +23,7 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
     <div class="container">
         <div class="logo">
             <label for="btn-menu" class="icon-menu"></label>
-            <a href="#">MoviesForYou</a>
+            <a href="index.php">MoviesForYou</a>
         </div>
         <form class="buscador" action="php/search.php" method="POST">
             <label for="2">.</label>
@@ -42,8 +44,8 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
             <a href="#">Lo nuevo!</a>
             <a href="#">Contacto</a>
             <?php 
-            //include ('php/Funciones.php');
-            //crear($rol_id);
+                
+                crear($rol_id);
             ?>
             <label for="btn-menu" class="icon-cancel-squared"></label>
         </nav>
