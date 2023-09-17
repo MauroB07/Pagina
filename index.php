@@ -39,10 +39,10 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
             <div class="imagen-perfil">
                 <img src="img/perfil.png" alt="">
             </div>
-            <a href="#">Perfil</a>
+            <a href="/Perfil.php">Perfil</a>
             <a href="#">Busqueda avanzada</a>
             <a href="#">Lo nuevo!</a>
-            <a href="#">Contacto</a>
+            
             <?php 
                 
                 crear($rol_id);
