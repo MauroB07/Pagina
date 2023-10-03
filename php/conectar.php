@@ -1,5 +1,5 @@
 <?php
-$conexion = mysqli_connect ('localhost','root', "", 'bd_pagina');
+$conexion = mysqli_connect ('localhost','root', "mauro", 'bd_pagina');
 
 if (!$conexion) {
     

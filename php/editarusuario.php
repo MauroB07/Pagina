@@ -1,6 +1,6 @@
 <?php
 // Establecer una conexión con la base de datos
-$conn = mysqli_connect("localhost", "root", "", "bd_pagina");
+$conn = mysqli_connect("localhost", "root", "mauro", "bd_pagina");
 
 // Verificar si se ha enviado el formulario
 if (isset($_POST['save'])) {

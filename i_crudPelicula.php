@@ -79,7 +79,7 @@ require 'php/Funciones.php';
             <div id="listaPeliculas">
 
                 <form class="busqueda" action="" method="get">
-                    <input type="text" name="searchPelicula" placeholder="Buscar">
+                    <input type="text" name="busqueda" placeholder="Buscar">
                     <button type="submit" name="enviar" value="buscar">Refrescar</button>
                 </form>
 

@@ -1,8 +1,7 @@
 <?php
     include('conectar.php');
-    $searchPelicula = trim($_GET['searchPelicula']);
-
-    $consulta = "SELECT * FROM pelicula WHERE titulo LIKE '%$searchPelicula%'";
+    $searchPelicula = trim($_GET['busqueda']);
+    $consulta = "SELECT * FROM pelicula WHERE titulo LIKE '%$searchPelicula%' ";
     $resultado = mysqli_query($conexion,$consulta);
     
     if($resultado){
