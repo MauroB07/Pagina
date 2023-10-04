@@ -1,17 +1,11 @@
 <?php
     include('conectar.php');
 
-    
-    
-
     $new_id_selecionada = $_POST['id_selecionada'];
     $nueva_name = $_POST['name'];
     $nueva_sinopsis = $_POST['sinopsis'];
     $nueva_img = $_POST['img'];
 
-    
-    
-    
     $sql3 = "SELECT * FROM pelicula WHERE id = $new_id_selecionada";
     $resultado3 = mysqli_query($conexion, $sql3);
     

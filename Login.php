@@ -12,20 +12,20 @@
     <section>
         <div class="contenedor">
             <div class="formulario">
-                <form action="#">
+                <form action="php/Login.php" method="post">
                     <div class="formulario">
                         <h2>Iniciar Session</h2>
     
                         <div class="input-contenedor">
                             <i class="fa-solid fa-envelope"></i>
                             <input type="email" required>
-                            <label for="#">Email</label>
+                            <label for="email">Email</label>
                         </div>
     
                         <div class="input-contenedor">
                             <i class="fa-solid fa-lock"></i>
                             <input type="password" required>
-                            <label for="#">Contrseña</label>
+                            <label for="password">Contrseña</label>
                         </div>
                         <div class="olvidar">
                            <label for="#">
@@ -34,14 +34,19 @@
                            </label>
                         </div>
                     </div>
-    
-                </form>
-                <div>
-                    <button>Acceder</button>
-                    <div class="registrar">
-                        <p>No tengo cuenta</p><a href="#">Crear una</a>
+                    <div>
+                        <button type="submit">Acceder</button>
+                        <div class="registrar">
+                            <p>No tengo cuenta</p><a href="Sing-up.php">Crear una</a>
+                            <br>
+                            <?php     
+                                include("php/Funciones2.php");
+                                mensaje();
+                            ?>  
+                        </div>
                     </div>
-                </div>
+                </form>
+                
             </div>
         </div>
     </section>
