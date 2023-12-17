@@ -18,13 +18,13 @@
     
                         <div class="input-contenedor">
                             <i class="fa-solid fa-envelope"></i>
-                            <input type="email" required>
+                            <input type="email" name="email" required>
                             <label for="email">Email</label>
                         </div>
     
                         <div class="input-contenedor">
                             <i class="fa-solid fa-lock"></i>
-                            <input type="password" required>
+                            <input type="password" name="password" required>
                             <label for="password">Contrseña</label>
                         </div>
                         <div class="olvidar">

@@ -244,7 +244,7 @@ img{
     justify-content: center;
     display: flex;
     flex-wrap: wrap;
-    overflow: auto;
+    
     background-color: #000000;
     align-content: flex-start; /* Alinea los elementos en la parte superior del contenedor */
   }

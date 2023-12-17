@@ -13,7 +13,7 @@ $_SESSION['error'] = 0;
         $password = trim($_POST['password']);
     }
 
-    $consulta = "SELECT email,passwordd FROM usuario WHERE email='$email' and passwordd='$password'";
+    $consulta = "SELECT email,passwordd, rol_id FROM usuario WHERE email='$email' and passwordd='$password'";
     $resultado = mysqli_query($conexion,$consulta);
 
     if ($resultado) {
@@ -23,12 +23,17 @@ $_SESSION['error'] = 0;
             while ($fila = mysqli_fetch_assoc($resultado)) {
                 $email2 = $fila['email'];
                 $password2 = $fila['passwordd'];
+                $rol =$fila['rol_id'];
             }
-            //Si su email ya esta registrado lo redirrecionamos a la misma pagina y guardamos en la
-            // session el error = 1 para usarlo en Funciones2.php
-            if($email2 == $email && $password2 == $password){
-                header("Location:/Pagina/index.php");
-                
+        
+            if($email2 == $email){
+                if($password2 == $password){
+                    $_SESSION['email'] = $email2;
+                    $_SESSION['password'] = $password2;
+                    $_SESSION['rol_id'] = $rol;
+                    header("Location:/Pagina/index.php");
+                }
+                                
                 
             }else{
                 $_SESSION['error'] = 2; 
@@ -43,6 +48,3 @@ $_SESSION['error'] = 0;
     } else {
         echo "Error en la consulta: " . mysqli_error($conexion);
     }
-
-
-?>

@@ -1,7 +1,7 @@
 <?php 
 require 'php/conexion.php';
 require 'php/config.php'; 
-require 'php/Funciones.php';
+require 'php/Funciones2.php';
 $db = new Database();
 $con = $db->conectar();
 $sql = $con->prepare("SELECT id_pelicula, titulo, img FROM pelicula");
@@ -39,14 +39,10 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
             <div class="imagen-perfil">
                 <img src="img/perfil.png" alt="">
             </div>
-            <a href="/Perfil.php">Perfil</a>
-            <a href="#">Busqueda avanzada</a>
+            <a href="Perfil.php">Perfil</a>
+            <a href="busqueda2.php">Busqueda avanzada</a>
             <a href="#">Lo nuevo!</a>
-            
-            <?php 
-                
-                crear($rol_id);
-            ?>
+            <?php Rol();?>
             <label for="btn-menu" class="icon-cancel-squared"></label>
         </nav>
     </div>

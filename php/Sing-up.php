@@ -3,7 +3,7 @@
     include("conectar.php");
     include("Funciones2.php");
     //Declaramos las variables para que no generen error
-    $_SESSION['error'] = 0;
+    
     //Recibimos todos los campos
     if(isset($_POST['nombre'])){
         $nombre = trim($_POST['nombre']);

@@ -43,13 +43,12 @@
             <div class="imagen-perfil">
                 <img src="img/perfil.png" alt="">
             </div>
-            <a href="#">Perfil</a>
+            <a href="Perfil.php">Perfil</a>
             <a href="#">Busqueda avanzada</a>
             <a href="#">Lo nuevo!</a>
-            
             <?php 
-            include ('php/Funciones.php');
-            crear($rol_id);
+                include ('php/Funciones2.php');
+                Rol();
             ?>
             <label for="btn-menu" class="icon-cancel-squared"></label>
         </nav>

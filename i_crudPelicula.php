@@ -1,5 +1,5 @@
 <?php
-require 'php/Funciones.php';
+require 'php/Funciones2.php';
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -33,10 +33,9 @@ require 'php/Funciones.php';
             </div>
             <a href="Perfil.php">Perfil</a>
             <a href="#">Busqueda avanzada</a>
-          
+            <a href="#">Lo nuevo!</a>
             <?php
-
-            crear($rol_id);
+                Rol();
             ?>
             <label for="btn-menu" class="icon-cancel-squared"></label>
         </nav>
@@ -54,7 +53,7 @@ require 'php/Funciones.php';
                     <form id="formulario" method="post" action="php/crudPelicula.php" enctype="multipart/form-data"> <!-- mod-dic -->
 
                         <textarea id="miTextArea" oninput="verificarTextArea()" name="id_pelicula" cols="30" rows="1" placeholder="id_pelicula"></textarea> <br> <!-- mod-dic -->
-                        <textarea name="nombre" cols="30" rows="1" placeholder="Titulo"></textarea> <br>
+                        <textarea name="titulo" cols="30" rows="1" placeholder="Titulo"></textarea> <br>
                         <textarea name="sinopsis" cols="30" rows="10" placeholder="Sinopsis"></textarea> <br>
                         <textarea name="generos" cols="30" rows="5" placeholder="Generos"></textarea> <br>
                         <textarea name="url" cols="30" rows="1" placeholder="URL img"></textarea> <br>
@@ -80,7 +79,7 @@ require 'php/Funciones.php';
 
                 <form class="busqueda" action="" method="get">
                     <input type="text" name="busqueda" placeholder="Buscar">
-                    <button type="submit" name="enviar" value="buscar">Refrescar</button>
+                    <button type="submit" name="enviar" value="buscar">Buscar</button>
                 </form>
 
             </div>
